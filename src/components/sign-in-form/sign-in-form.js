@@ -3,7 +3,7 @@ import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase";
-import Button from "../button/button";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button";
 import FormInput from "../form-input/form-input";
 import "./sign-in-form.scss";
 
@@ -47,7 +47,7 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const signInWithGoogle = async () => {    
+  const signInWithGoogle = async () => {
     await signInWithGooglePopup();
   };
 
@@ -82,7 +82,7 @@ const SignInForm = () => {
           <Button type="submit">Sign In</Button>
           <Button
             buttonProps={{ type: "button", onClick: signInWithGoogle }}
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
           >
             Google sign In
           </Button>
